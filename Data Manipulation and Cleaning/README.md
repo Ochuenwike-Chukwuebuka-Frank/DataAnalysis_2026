@@ -1,12 +1,12 @@
 1. Project Description:
    
-	This project covers data manipulation and cleaning techniques applied to a clinical dataset. 
-	The objective is to identify and handle missing data, perform imputation using multiple methods, and detect outliers.
+	This project covers data manipulation and cleaning techniques applied to a clinical dataset. The work included exploratory data analysis, missing value identification and visualisation, removal of high missingness variables, imputation using multiple methods, and outlier detection.
 
-	Three tasks were completed: 
-	- Little's MCAR Test to determine the missing data mechanism, 
-	- MICE imputation using Random Forest and PMM methods
-	- Outlier detection using boxplots and the LOF algorithm.
+Three homework tasks were completed:
+
+  Little's MCAR Test to determine the missing data mechanism
+  MICE imputation using Random Forest and PMM methods
+  Outlier detection using boxplots and the LOF algorithm
 
 _______________________________________________
 _______________________________________________
@@ -20,14 +20,47 @@ The dataset contained missing values across multiple variables, which were addre
 _______________________________________________
 _______________________________________________
 
-3. Software:
-	RStudio
+3. R Environment:
+	IDE: RStudio (Mac)
 	R version: 4.5.3
+
+	Key Packages Used:
+
+	dplyr – for data manipulation
+	tidyr – for data reshaping
+	ggplot2 – for visualization
+	skimr – for detailed data summaries
+	visdat – to visualize missing data
+	naniar – for missing data analysis and MCAR testing
+	mice – for multiple imputation
+	dbscan – for Local Outlier Factor (LOF) calculations
 
 _______________________________________________
 _______________________________________________
 
 4. Procedures:
+
+- Data Exploration:
+  
+The dataset was first explored using str() to check variable types and skim() from the skimr package to get a summary of distributions across all variables.
+
+- Dataset Preparation:
+  
+The dataset was split into two parts. MD_df kept most of the variables for analysis, while factor_df held the outcome and categorical variables separately.
+
+- Missing Value Analysis:
+  
+Missingness was calculated per column as a percentage. Variables with more than 35% missing data were flagged for removal, while those at or below 35% were kept for imputation.
+
+- Visualising Missingness:
+  
+Two plots were produced using the visdat and naniar packages. vis_miss() gave a visual map of where NAs appear across the dataset, and gg_miss_var() showed missingness per variable as a barplot.
+
+- Removing High Missingness Columns:
+
+Variables hormone9 to hormone14 exceeded the 35% threshold and were removed, producing the cleaned dataset handle_MD_df used in all three tasks.
+
+_______________________________________________
 
 Task 1 — Little's MCAR Test:
 
